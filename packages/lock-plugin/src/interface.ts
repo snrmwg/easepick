@@ -13,9 +13,3 @@ export interface ILockConfig extends IBaseConfig {
   inseparable?: boolean;
   filter?: (date: DateTime | DateTime[], picked: DateTime[]) => boolean;
 }
-
-declare module '@easepick/core/dist/types' {
-  interface IPickerConfig {
-    LockPlugin?: ILockConfig;
-  }
-}

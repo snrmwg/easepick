@@ -50,7 +50,7 @@ export class Core {
     wrapper: null,
   };
 
-  public version = __VERSION__;
+  // TODO public version = __VERSION__;
 
   constructor(options: IPickerConfig) {
     const locales = { ...this.options.locale, ...options.locale };

@@ -17,10 +17,6 @@ export default class PluginManager {
     this.picker.options.plugins.forEach((plugin: any) => {
       if (typeof plugin === 'function') {
         list.push(new plugin);
-      } else if (typeof plugin === 'string'
-        && typeof easepick !== 'undefined'
-        && Object.prototype.hasOwnProperty.call(easepick, plugin)) {
-        list.push(new easepick[plugin]);
       } else {
         console.warn(`easepick: ${plugin} not found.`);
       }
@@ -59,13 +55,7 @@ export default class PluginManager {
    */
   public addInstance<T>(name: string): T {
     if (!Object.prototype.hasOwnProperty.call(this.instances, name)) {
-      if (typeof easepick !== 'undefined' && Object.prototype.hasOwnProperty.call(easepick, name)) {
-        const plugin = new easepick[name];
-        plugin.attach(this.picker);
-        this.instances[plugin.getName()] = plugin;
-
-        return plugin;
-      } else if (this.getPluginFn(name) !== 'undefined') {
+      if (this.getPluginFn(name) !== 'undefined') {
         const plugin = new (this.getPluginFn(name));
         plugin.attach(this.picker);
         this.instances[plugin.getName()] = plugin;

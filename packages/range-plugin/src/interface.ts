@@ -30,9 +30,3 @@ declare module '@easepick/core' {
     getEndDate(): DateTime;
   }
 }
-
-declare module '@easepick/core/dist/types' {
-  interface IPickerConfig {
-    RangePlugin?: IRangeConfig;
-  }
-}

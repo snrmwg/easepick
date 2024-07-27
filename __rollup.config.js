@@ -15,29 +15,6 @@ const output = (name) => {
 
   return [
     {
-      file: `packages/${name}/dist/index.umd.js`,
-      format: 'umd',
-      name: 'easepick',
-      sourcemap: false,
-      extend: true,
-      banner: `/**
-* @license
-* Package: ${pkg.name}
-* Version: ${pkg.version}
-* https://easepick.com/
-* Copyright ${(new Date()).getFullYear()} Rinat G.
-* 
-* Licensed under the terms of GNU General Public License Version 2 or later. (http://www.gnu.org/licenses/gpl.html)
-*/`,
-      globals(id) {
-        if (/^@easepick\//.test(id)) {
-          return 'easepick';
-        }
-
-        return id;
-      }
-    },
-    {
       file: `packages/${name}/dist/index.esm.js`,
       format: 'esm',
       sourcemap: false,
@@ -81,16 +58,16 @@ const getPackageConfig = (name) => {
 }
 
 export default [
-  getPackageConfig('datetime'),
-  getPackageConfig('core'),
+  // getPackageConfig('datetime'),
+  // getPackageConfig('core'),
 
-  getPackageConfig('base-plugin'),
-  getPackageConfig('lock-plugin'),
-  getPackageConfig('range-plugin'),
-  getPackageConfig('preset-plugin'),
-  getPackageConfig('time-plugin'),
-  getPackageConfig('kbd-plugin'),
-  getPackageConfig('amp-plugin'),
+  // getPackageConfig('base-plugin'),
+  // getPackageConfig('lock-plugin'),
+  // getPackageConfig('range-plugin'),
+  // getPackageConfig('preset-plugin'),
+  // getPackageConfig('time-plugin'),
+  // getPackageConfig('kbd-plugin'),
+  // getPackageConfig('amp-plugin'),
 
   // @easepick/bundle
   {
@@ -112,7 +89,7 @@ export default [
       }),
       postcss({
         extract: 'index.css',
-        plugins: [autoprefixer],
+        //plugins: [autoprefixer],
         minimize: ENV_PROD,
       }),
       ENV_PROD && terser(),

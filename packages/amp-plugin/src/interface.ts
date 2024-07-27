@@ -14,9 +14,3 @@ export interface IAmpPlugin extends IBaseConfig {
     resetButton?: string;
   }
 }
-
-declare module '@easepick/core/dist/types' {
-  interface IPickerConfig {
-    AmpPlugin?: IAmpPlugin;
-  }
-}

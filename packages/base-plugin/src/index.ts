@@ -1,9 +1,9 @@
 import { Core } from '@easepick/core';
-import { IBaseConfig, IPlugin, IEventDetail } from './interface';
+import type { IBaseConfig, IPlugin, IEventDetail } from './interface';
 
-export class BasePlugin {
-  public picker: Core;
-  public options: IBaseConfig;
+export abstract class BasePlugin {
+  public abstract picker: Core;
+  public abstract options: IBaseConfig;
   public priority = 0;
   public dependencies: string[] = [];
 
@@ -84,7 +84,7 @@ export class BasePlugin {
    */
   private pluginsAsStringArray(): string[] {
     return this.picker.options.plugins
-      .map(x => typeof x === 'function' ? (new x).getName() : x);
+      ?.map(x => typeof x === 'function' ? (new x).getName() : x);
   }
 
   /**
@@ -94,7 +94,7 @@ export class BasePlugin {
    * @param str 
    * @returns String
    */
-  private camelCaseToKebab(str) {
+  private camelCaseToKebab(str: string) {
     return str.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase()
   }
 }

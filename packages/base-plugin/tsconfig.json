@@ -1,17 +1,13 @@
 {
-  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    "rootDir": "src",
-    "outDir": "dist",
-    "declarationDir": ".",
+    //"strict": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "Bundler"
   },
-  "include": [
-    "src/**/*"
-  ],
-  "references": [
-    {
-      "path": "../core"
-    }
+  "exclude": [
+    "__tests__",
+    "dist",
+    "node_modules"
   ]
 }

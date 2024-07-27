@@ -57,7 +57,9 @@ export class TimePlugin extends BasePlugin implements IPlugin {
    */
   public onAttach(): void {
     this.binds['_getDate'] = this.picker.getDate;
+    //@ts-ignore
     this.binds['_getStartDate'] = this.picker.getStartDate;
+    //@ts-ignore
     this.binds['_getEndDate'] = this.picker.getEndDate;
 
     Object.defineProperties(this.picker, {
@@ -100,8 +102,11 @@ export class TimePlugin extends BasePlugin implements IPlugin {
    * - Called automatically via BasePlugin.detach() -
    */
   public onDetach(): void {
+    //@ts-ignore
     delete this.picker.setTime;
+    //@ts-ignore
     delete this.picker.setStartTime;
+    //@ts-ignore
     delete this.picker.setEndTime;
 
     Object.defineProperties(this.picker, {
@@ -197,9 +202,9 @@ export class TimePlugin extends BasePlugin implements IPlugin {
       const value = Number(target.value);
       let date = new DateTime();
 
-      if (!this.picker.options.autoApply && this.timePrePicked[name] instanceof Date) {
+      if (!this.picker.options.autoApply && this.timePrePicked[name] instanceof DateTime) {
         date = this.timePrePicked[name].clone();
-      } else if (this.timePicked[name] instanceof Date) {
+      } else if (this.timePicked[name] instanceof DateTime) {
         date = this.timePicked[name].clone();
       }
 
@@ -270,7 +275,7 @@ export class TimePlugin extends BasePlugin implements IPlugin {
 
       if (this.picker.isApplyButton(element)) {
         Object.keys(this.timePicked).forEach(x => {
-          if (this.timePrePicked[x] instanceof Date) {
+          if (this.timePrePicked[x] instanceof DateTime) {
             this.timePicked[x] = this.timePrePicked[x].clone();
           }
         });
@@ -482,9 +487,9 @@ export class TimePlugin extends BasePlugin implements IPlugin {
     const hLimit = this.options.format12 ? 13 : 24;
     let date = null;
 
-    if (!this.picker.options.autoApply && this.timePrePicked[name] instanceof Date) {
-      date = this.timePrePicked[name].clone();
-    } else if (this.timePicked[name] instanceof Date) {
+    if (!this.picker.options.autoApply && this.timePrePicked[name] instanceof DateTime) {
+      date = this.timePrePicked[name].clone;
+    } else if (this.timePicked[name] instanceof DateTime) {
       date = this.timePicked[name].clone();
     }
 
