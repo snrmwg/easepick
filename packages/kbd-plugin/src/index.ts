@@ -4,7 +4,7 @@ import { IKbdPlugin } from './interface';
 import './index.scss';
 
 export class KbdPlugin extends BasePlugin implements IPlugin {
-  public docElement: HTMLElement = null;
+  public docElement: HTMLElement;
   public rangePlugin: RangePlugin;
 
   public binds = {
@@ -32,6 +32,7 @@ export class KbdPlugin extends BasePlugin implements IPlugin {
    */
   public onAttach(): void {
     const element = this.picker.options.element as HTMLElement;
+    /*
     const elementBounds = element.getBoundingClientRect();
     this.docElement = document.createElement('span');
     this.docElement.style.position = 'absolute';
@@ -68,13 +69,20 @@ export class KbdPlugin extends BasePlugin implements IPlugin {
 
       button.addEventListener('keydown', (evt) => {
         if (evt.code === 'Escape') {
+          evt.preventDefault();
           this.picker.hide();
         }
       }, { capture: true });
     }
 
     (this.picker.options.element as HTMLElement).after(this.docElement);
-
+    */
+    element.addEventListener('keydown', (evt) => {
+      if (evt.code === 'Escape' && this.picker.isShown()) {
+        evt.preventDefault();
+        this.picker.hide();
+      }
+    });
     this.picker.on('view', this.binds.onView);
     this.picker.on('keydown', this.binds.onKeydown);
   }
@@ -116,7 +124,7 @@ export class KbdPlugin extends BasePlugin implements IPlugin {
    * 
    * @param event 
    */
-  private onKeydown(event) {
+  private onKeydown(event: KeyboardEvent) {
     this.onMouseEnter(event);
 
     switch (event.code) {
@@ -136,6 +144,7 @@ export class KbdPlugin extends BasePlugin implements IPlugin {
         break;
 
       case 'Escape':
+        event.preventDefault();
         this.picker.hide();
         break;
     }

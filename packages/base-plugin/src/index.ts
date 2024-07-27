@@ -2,8 +2,8 @@ import { Core } from '@easepick/core';
 import type { IBaseConfig, IPlugin, IEventDetail } from './interface';
 
 export abstract class BasePlugin {
-  public abstract picker: Core;
-  public abstract options: IBaseConfig;
+  public picker: Core;
+  public options: IBaseConfig;
   public priority = 0;
   public dependencies: string[] = [];
 

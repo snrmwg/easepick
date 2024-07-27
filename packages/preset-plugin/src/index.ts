@@ -25,7 +25,7 @@ export class PresetPlugin extends BasePlugin implements IPlugin {
   public getName(): string {
     return 'PresetPlugin';
   }
-  
+
   /**
    * - Called automatically via BasePlugin.attach() -
    * The function execute on initialize the picker
@@ -130,10 +130,13 @@ export class PresetPlugin extends BasePlugin implements IPlugin {
         const endDate = new DateTime(Number(element.dataset.end));
 
         if (this.picker.options.autoApply) {
+          //@ts-ignore
           this.picker.setDateRange(startDate, endDate);
 
           this.picker.trigger('select', {
+            //@ts-ignore
             start: this.picker.getStartDate(),
+            //@ts-ignore
             end: this.picker.getEndDate(),
           });
 

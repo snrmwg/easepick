@@ -20,13 +20,3 @@ export interface IRangeConfig extends IBaseConfig {
   }
   documentClick?: boolean | (() => void);
 }
-
-declare module '@easepick/core' {
-  interface Core {
-    setStartDate(date: Date | string | number): void;
-    setEndDate(date: Date | string | number): void;
-    setDateRange(start: Date | string | number, end: Date | string | number): void;
-    getStartDate(): DateTime;
-    getEndDate(): DateTime;
-  }
-}

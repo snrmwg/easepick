@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "Bundler"
+  },
+  "exclude": [
+    "__tests__",
+    "dist",
+    "node_modules"
+  ]
+}

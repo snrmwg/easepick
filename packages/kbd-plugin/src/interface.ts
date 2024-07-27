@@ -6,8 +6,3 @@ export interface IKbdPlugin extends IBaseConfig {
   html?: string;
 }
 
-declare module '@easepick/core/dist/types' {
-  interface IKbdPlugin {
-    KbdPlugin?: IKbdPlugin;
-  }
-}

@@ -8,7 +8,6 @@
     "preinstall": "npx only-allow pnpm",
     "build": "pnpm run -r build",
     "clean:build": "rm -rf packages/*/dist packages/*/node_modules"
-
   },
   "devDependencies": {
     "vite": "^5.3.5",

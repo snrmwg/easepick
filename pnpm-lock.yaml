@@ -49,7 +49,7 @@ importers:
         version: link:../datetime
 
   packages/bundle:
-    dependencies:
+    devDependencies:
       '@easepick/amp-plugin':
         specifier: workspace:^
         version: link:../amp-plugin
@@ -91,6 +91,9 @@ importers:
       '@easepick/base-plugin':
         specifier: workspace:^
         version: link:../base-plugin
+      '@easepick/range-plugin':
+        specifier: workspace:^
+        version: link:../range-plugin
 
   packages/lock-plugin:
     dependencies:
@@ -106,6 +109,9 @@ importers:
       '@easepick/base-plugin':
         specifier: workspace:^
         version: link:../base-plugin
+      '@easepick/datetime':
+        specifier: workspace:^
+        version: link:../datetime
       '@easepick/range-plugin':
         specifier: workspace:^
         version: link:../range-plugin

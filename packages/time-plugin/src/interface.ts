@@ -1,4 +1,3 @@
-import { DateTime } from '@easepick/datetime';
 import { IBaseConfig } from '@easepick/base-plugin';
 
 export interface ITimeConfig extends IBaseConfig {

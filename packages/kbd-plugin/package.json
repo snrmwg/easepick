@@ -1,11 +1,16 @@
 {
   "name": "@easepick/kbd-plugin",
+  "type": "module",
   "description": "Plugin for easepick.",
   "version": "1.2.1",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "vite build --config ../vite.config.js"
+  },
   "dependencies": {
-    "@easepick/base-plugin": "workspace:^"
+    "@easepick/base-plugin": "workspace:^",
+    "@easepick/range-plugin": "workspace:^"
   },
   "author": {
     "name": "Rinat G.",

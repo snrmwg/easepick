@@ -6,8 +6,8 @@ import { IAmpPlugin } from './interface';
 import './index.scss';
 
 export class AmpPlugin extends BasePlugin implements IPlugin {
-  // public rangePlugin: RangePlugin;
-  // public lockPlugin: LockPlugin;
+  public rangePlugin: RangePlugin;
+  public lockPlugin: LockPlugin;
   public priority = 10;
 
   public binds = {

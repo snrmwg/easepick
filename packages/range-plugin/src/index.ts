@@ -60,10 +60,15 @@ export class RangePlugin extends BasePlugin implements IPlugin {
    * The function execute on initialize the picker
    */
   public onAttach(): void {
+    //@ts-ignore
     this.binds['_setStartDate'] = this.picker.setStartDate;
+    //@ts-ignore
     this.binds['_setEndDate'] = this.picker.setEndDate;
+    //@ts-ignore
     this.binds['_setDateRange'] = this.picker.setDateRange;
+    //@ts-ignore
     this.binds['_getStartDate'] = this.picker.getStartDate;
+    //@ts-ignore
     this.binds['_getEndDate'] = this.picker.getEndDate;
     this.binds['_parseValues'] = this.picker.parseValues;
     this.binds['_updateValues'] = this.picker.updateValues;
@@ -265,12 +270,14 @@ export class RangePlugin extends BasePlugin implements IPlugin {
   private updateValues() {
     const el = this.picker.options.element;
     const elEnd = this.options.elementEnd;
+    //@ts-ignore
     const start = this.picker.getStartDate();
+    //@ts-ignore
     const end = this.picker.getEndDate();
-    const startString = start instanceof Date
+    const startString = start instanceof DateTime
       ? start.format(this.picker.options.format, this.picker.options.lang)
       : '';
-    const endString = end instanceof Date
+    const endString = end instanceof DateTime
       ? end.format(this.picker.options.format, this.picker.options.lang)
       : '';
 
@@ -576,6 +583,7 @@ export class RangePlugin extends BasePlugin implements IPlugin {
             this.setEndDate(this.picker.datePicked[0]);
           }
 
+          //@ts-ignore
           this.picker.trigger('select', { start: this.picker.getStartDate(), end: this.picker.getEndDate() });
         }
 
@@ -586,6 +594,7 @@ export class RangePlugin extends BasePlugin implements IPlugin {
         if (this.picker.options.autoApply) {
           this.setDateRange(this.picker.datePicked[0], this.picker.datePicked[1]);
 
+          //@ts-ignore
           this.picker.trigger('select', { start: this.picker.getStartDate(), end: this.picker.getEndDate() });
 
           this.picker.hide();
@@ -616,6 +625,7 @@ export class RangePlugin extends BasePlugin implements IPlugin {
         this.setDateRange(this.picker.datePicked[0], this.picker.datePicked[1]);
       }
 
+      //@ts-ignore
       this.picker.trigger('select', { start: this.picker.getStartDate(), end: this.picker.getEndDate() });
 
       this.picker.hide();
